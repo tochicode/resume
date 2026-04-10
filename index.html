@@ -14,8 +14,6 @@
       --blue-border: #B5D4F4;
       --blue-text: #0C447C;
       --dark: #1A1A2E;
-      --gray: #4A4A5A;
-      --mid-gray: #7A7A8A;
       --bg: #ffffff;
       --bg-secondary: #F5F7FA;
       --border: rgba(0,0,0,0.1);
@@ -175,20 +173,17 @@
       font-size: 12px; color: var(--text-secondary);
       border-top: 1px solid var(--border);
     }
-
-    @media (max-width: 480px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      nav a { padding: 12px 10px; font-size: 12px; }
-    }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -219,7 +214,7 @@
     <p class="about-text">Detail-oriented QA Engineer with experience testing fintech and payment processing platforms. Skilled in manual and automation testing using Selenium and Cypress, API validation, and defect management. Experienced working in Agile environments to deliver reliable, secure, and high-quality software supporting high-volume financial transactions.</p>
     <div class="stat-grid">
       <div class="stat"><div class="stat-num">₦2B+</div><div class="stat-lbl">Transactions supported</div></div>
-      <div class="stat"><div class="stat-num">1+</div><div class="stat-lbl">Years at ALAT</div></div>
+      <div class="stat"><div class="stat-num">2+</div><div class="stat-lbl">Years at ALAT</div></div>
       <div class="stat"><div class="stat-num">1st</div><div class="stat-lbl">Class Honours, UI</div></div>
     </div>
   </section>
@@ -238,13 +233,14 @@
       <div class="exp-squad">ALATPay Squad — Payment Processing Platform</div>
       <ul class="exp-bullets">
         <li>Contributed QA on <span class="hl">ALATPay</span>, a fintech payment platform supporting <span class="hl">₦2B+ in processed transactions</span>.</li>
-        <li>Co-validated a <span class="hl">Tap-to-Pay (SoftPOS)</span> mobile app enabling merchants to accept NFC contactless payments via smartphone.</li>
+        <li>Co-validated a <span class="hl">Tap-to-Pay (SoftPOS)</span> mobile app enabling merchants to accept NFC contactless payments via smartphone; currently in pre-production awaiting final deployment.</li>
         <li>Executed manual and automated tests using <span class="hl">Selenium and Cypress</span> to validate core workflows and ensure software reliability.</li>
         <li>Conducted <span class="hl">API testing via Postman</span> to validate backend services and payment transaction endpoints.</li>
         <li>Designed and executed <span class="hl">functional, regression, and UAT tests</span> before every production release.</li>
-        <li>Documented and tracked defects; collaborated with developers to ensure timely resolution and verified fixes via regression testing.</li>
+        <li>Documented and tracked defects; collaborated with developers to ensure timely resolution and verified fixes via regression testing before deployment.</li>
         <li>Participated in Agile ceremonies: sprint planning, daily stand-ups, backlog refinement, and retrospectives.</li>
         <li>Collaborated with developers, product managers, and designers to improve product performance and user experience.</li>
+        <li>Contributed to improving QA processes, testing documentation, and quality standards within the team.</li>
       </ul>
     </div>
   </section>
@@ -254,22 +250,24 @@
     <p class="section-label">Key Projects</p>
     <div class="project-card">
       <div class="project-title">Tap-to-Pay (SoftPOS) Application</div>
-      <p class="project-desc">QA validation of a contactless payment solution enabling merchants to accept NFC payments via smartphone. Tested payment processing flows, transaction validation, and merchant onboarding features in pre-production environments.</p>
+      <p class="project-desc">QA validation of a contactless payment solution enabling merchants to accept NFC payments via smartphone. Tested payment processing flows, transaction validation, and merchant onboarding features in pre-production environments prior to final production approval.</p>
       <div class="tags">
         <span class="tag">NFC / Contactless</span>
         <span class="tag">UAT</span>
         <span class="tag">Pre-production</span>
         <span class="tag">Merchant onboarding</span>
+        <span class="tag">Cypress</span>
       </div>
     </div>
     <div class="project-card">
       <div class="project-title">ALATPay Web Platform</div>
-      <p class="project-desc">Manual and automated testing on merchant services and payment workflows for a high-volume fintech platform. Identified usability issues and defects through regression testing cycles, helping maintain quality standards at scale.</p>
+      <p class="project-desc">Manual and automated testing on merchant services and payment workflows for a high-volume fintech platform supporting ₦2B+ in transactions. Identified usability issues and defects through regression testing cycles, helping maintain quality standards at scale.</p>
       <div class="tags">
         <span class="tag">Regression testing</span>
         <span class="tag">Selenium</span>
         <span class="tag">Postman</span>
         <span class="tag">Fintech</span>
+        <span class="tag">Web app testing</span>
       </div>
     </div>
   </section>
@@ -305,6 +303,7 @@
           <span class="tag">API Testing</span>
           <span class="tag">Test Case Design</span>
           <span class="tag">Defect Tracking</span>
+          <span class="tag">Bug Reporting</span>
         </div>
       </div>
       <div class="skill-group" style="grid-column: 1 / -1;">
@@ -314,6 +313,7 @@
           <span class="tag">Scrum</span>
           <span class="tag">CI Awareness</span>
           <span class="tag">Cross-functional Collaboration</span>
+          <span class="tag">Sprint Planning</span>
         </div>
       </div>
     </div>
@@ -359,7 +359,7 @@
     </div>
     <div class="contact-row">
       <div class="contact-icon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 14.92z"/></svg>
       </div>
       <span class="contact-label">Phone</span>
       <a class="contact-val" href="tel:+2347066340385">+234 706 634 0385</a>
@@ -367,7 +367,7 @@
   </section>
 
   <footer>
-    &copy; 2026 Joseph Tochi Udoka &nbsp;·&nbsp; Lagos, Nigeria
+    Joseph Tochi Udoka &nbsp;·&nbsp; Software QA Engineer &nbsp;·&nbsp; Lagos, Nigeria
   </footer>
 
 </body>
