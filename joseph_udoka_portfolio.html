@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Tochi Udoka — QA Engineer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1B4F8A;
+      --blue-mid: #185FA5;
+      --blue-light: #E6F1FB;
+      --blue-border: #B5D4F4;
+      --blue-text: #0C447C;
+      --dark: #1A1A2E;
+      --gray: #4A4A5A;
+      --mid-gray: #7A7A8A;
+      --bg: #ffffff;
+      --bg-secondary: #F5F7FA;
+      --border: rgba(0,0,0,0.1);
+      --text: #1A1A2E;
+      --text-secondary: #4A4A5A;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1117;
+        --bg-secondary: #1a1e2a;
+        --border: rgba(255,255,255,0.1);
+        --text: #e8eaf0;
+        --text-secondary: #9aa0b0;
+        --blue-light: #0e2a4a;
+        --blue-border: #1e4a7a;
+        --blue-text: #7ab8f0;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--blue);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+    nav a {
+      color: #A8C8F0;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 12px 16px;
+      transition: color .2s, background .2s;
+    }
+    nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+    /* HERO */
+    .hero {
+      background: var(--blue);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+    .avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: #2E6BAD; border: 3px solid #4A90D9;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; font-weight: 500; color: #E6F1FB;
+      margin: 0 auto 1.25rem;
+    }
+    .hero h1 { font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .hero .role { font-size: 15px; color: #A8C8F0; margin-bottom: 1.5rem; }
+    .hero-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .hero-link {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border-radius: 20px;
+      border: 1px solid #3A6FAA; font-size: 13px;
+      color: #C8DEFF; text-decoration: none;
+      background: #163D6E; transition: background .2s;
+    }
+    .hero-link:hover { background: #2A5B9E; }
+
+    /* SECTIONS */
+    section { padding: 2rem 1.5rem; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 11px; font-weight: 600; color: var(--blue-mid);
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+
+    /* ABOUT */
+    .about-text { font-size: 14px; line-height: 1.8; color: var(--text-secondary); }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1.25rem; }
+    .stat { background: var(--bg-secondary); border-radius: 8px; padding: 12px; text-align: center; }
+    .stat-num { font-size: 22px; font-weight: 600; color: var(--blue-mid); }
+    .stat-lbl { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
+
+    /* EXPERIENCE */
+    .exp-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 12px;
+    }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+    .exp-title { font-size: 15px; font-weight: 600; color: var(--text); }
+    .exp-date { font-size: 12px; color: var(--text-secondary); white-space: nowrap; margin-left: 8px; flex-shrink: 0; }
+    .exp-company { font-size: 13px; color: var(--blue-mid); font-weight: 500; margin-bottom: 10px; }
+    .exp-squad { font-size: 12px; color: var(--text-secondary); font-style: italic; margin-bottom: 10px; }
+    .exp-bullets { list-style: none; padding: 0; }
+    .exp-bullets li {
+      font-size: 13px; color: var(--text-secondary);
+      line-height: 1.65; padding: 3px 0 3px 16px; position: relative;
+    }
+    .exp-bullets li::before { content: "•"; position: absolute; left: 0; color: #378ADD; }
+    .hl { color: var(--text); font-weight: 500; }
+
+    /* PROJECTS */
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue-mid);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 12px;
+    }
+    .project-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .project-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 12px; padding: 3px 10px; border-radius: 12px;
+      background: var(--blue-light); color: var(--blue-text);
+      border: 1px solid var(--blue-border);
+    }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .skill-group { background: var(--bg-secondary); border-radius: 8px; padding: 12px; }
+    .skill-group-label {
+      font-size: 11px; font-weight: 600; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px;
+    }
+
+    /* CONTACT */
+    .contact-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-icon {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--blue-light);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-label { font-size: 13px; color: var(--text-secondary); min-width: 64px; }
+    .contact-val { color: var(--blue-mid); text-decoration: none; font-size: 13px; }
+    .contact-val:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 1.5rem;
+      font-size: 12px; color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      nav a { padding: 12px 10px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar">JU</div>
+    <h1>Joseph Tochi Udoka</h1>
+    <p class="role">Software Quality Assurance Engineer &nbsp;·&nbsp; Lagos, Nigeria</p>
+    <div class="hero-links">
+      <a class="hero-link" href="mailto:josephudokae@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Email
+      </a>
+      <a class="hero-link" href="https://www.linkedin.com/in/joseph-udoka-tochi/" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="hero-link" href="https://github.com/tochicode" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <p class="about-text">Detail-oriented QA Engineer with experience testing fintech and payment processing platforms. Skilled in manual and automation testing using Selenium and Cypress, API validation, and defect management. Experienced working in Agile environments to deliver reliable, secure, and high-quality software supporting high-volume financial transactions.</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-num">₦2B+</div><div class="stat-lbl">Transactions supported</div></div>
+      <div class="stat"><div class="stat-num">1+</div><div class="stat-lbl">Years at ALAT</div></div>
+      <div class="stat"><div class="stat-num">1st</div><div class="stat-lbl">Class Honours, UI</div></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label">Experience</p>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Quality Assurance Engineer (SDE I)</div>
+          <div class="exp-company">ALAT by Wema Bank</div>
+        </div>
+        <div class="exp-date">Mar 2024 – Present</div>
+      </div>
+      <div class="exp-squad">ALATPay Squad — Payment Processing Platform</div>
+      <ul class="exp-bullets">
+        <li>Contributed QA on <span class="hl">ALATPay</span>, a fintech payment platform supporting <span class="hl">₦2B+ in processed transactions</span>.</li>
+        <li>Co-validated a <span class="hl">Tap-to-Pay (SoftPOS)</span> mobile app enabling merchants to accept NFC contactless payments via smartphone.</li>
+        <li>Executed manual and automated tests using <span class="hl">Selenium and Cypress</span> to validate core workflows and ensure software reliability.</li>
+        <li>Conducted <span class="hl">API testing via Postman</span> to validate backend services and payment transaction endpoints.</li>
+        <li>Designed and executed <span class="hl">functional, regression, and UAT tests</span> before every production release.</li>
+        <li>Documented and tracked defects; collaborated with developers to ensure timely resolution and verified fixes via regression testing.</li>
+        <li>Participated in Agile ceremonies: sprint planning, daily stand-ups, backlog refinement, and retrospectives.</li>
+        <li>Collaborated with developers, product managers, and designers to improve product performance and user experience.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Key Projects</p>
+    <div class="project-card">
+      <div class="project-title">Tap-to-Pay (SoftPOS) Application</div>
+      <p class="project-desc">QA validation of a contactless payment solution enabling merchants to accept NFC payments via smartphone. Tested payment processing flows, transaction validation, and merchant onboarding features in pre-production environments.</p>
+      <div class="tags">
+        <span class="tag">NFC / Contactless</span>
+        <span class="tag">UAT</span>
+        <span class="tag">Pre-production</span>
+        <span class="tag">Merchant onboarding</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">ALATPay Web Platform</div>
+      <p class="project-desc">Manual and automated testing on merchant services and payment workflows for a high-volume fintech platform. Identified usability issues and defects through regression testing cycles, helping maintain quality standards at scale.</p>
+      <div class="tags">
+        <span class="tag">Regression testing</span>
+        <span class="tag">Selenium</span>
+        <span class="tag">Postman</span>
+        <span class="tag">Fintech</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">Automation & testing tools</div>
+        <div class="tags">
+          <span class="tag">Selenium</span>
+          <span class="tag">Cypress</span>
+          <span class="tag">WebDriver</span>
+          <span class="tag">BlazeMeter</span>
+          <span class="tag">Postman</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Platforms & data</div>
+        <div class="tags">
+          <span class="tag">SQL</span>
+          <span class="tag">Microsoft Azure</span>
+        </div>
+      </div>
+      <div class="skill-group" style="grid-column: 1 / -1;">
+        <div class="skill-group-label">Testing techniques</div>
+        <div class="tags">
+          <span class="tag">Manual Testing</span>
+          <span class="tag">Functional Testing</span>
+          <span class="tag">Regression Testing</span>
+          <span class="tag">UAT</span>
+          <span class="tag">API Testing</span>
+          <span class="tag">Test Case Design</span>
+          <span class="tag">Defect Tracking</span>
+        </div>
+      </div>
+      <div class="skill-group" style="grid-column: 1 / -1;">
+        <div class="skill-group-label">Methodologies</div>
+        <div class="tags">
+          <span class="tag">Agile</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">CI Awareness</span>
+          <span class="tag">Cross-functional Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-label">Education</p>
+    <div class="exp-card" style="margin-bottom:0">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">BSc — First Class Honours</div>
+          <div class="exp-company">University of Ibadan</div>
+        </div>
+        <div class="exp-date">2021</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Get in touch</p>
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      </div>
+      <span class="contact-label">Email</span>
+      <a class="contact-val" href="mailto:josephudokae@gmail.com">josephudokae@gmail.com</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#185FA5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <span class="contact-label">LinkedIn</span>
+      <a class="contact-val" href="https://www.linkedin.com/in/joseph-udoka-tochi/" target="_blank" rel="noopener">linkedin.com/in/joseph-udoka-tochi</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#185FA5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </div>
+      <span class="contact-label">GitHub</span>
+      <a class="contact-val" href="https://github.com/tochicode" target="_blank" rel="noopener">github.com/tochicode</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+      </div>
+      <span class="contact-label">Phone</span>
+      <a class="contact-val" href="tel:+2347066340385">+234 706 634 0385</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Joseph Tochi Udoka &nbsp;·&nbsp; Lagos, Nigeria
+  </footer>
+
+</body>
+</html>
